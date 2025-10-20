@@ -130,8 +130,9 @@ spec:
         description: When enabling IPv6 ULA, optionally, specify a /48 from fd20::/20 (default null)
         varType: string
       - name: network_firewall_policy_enforcement_order
-        description: Set the order that Firewall Rules and Firewall Policies are evaluated. Valid values are `BEFORE_CLASSIC_FIREWALL` and `AFTER_CLASSIC_FIREWALL`. (default null or equivalent to `AFTER_CLASSIC_FIREWALL`)
+        description: Set the order that Firewall Rules and Firewall Policies are evaluated. Valid values are `BEFORE_CLASSIC_FIREWALL` and `AFTER_CLASSIC_FIREWALL`. (default `BEFORE_CLASSIC_FIREWALL`)
         varType: string
+        defaultValue: BEFORE_CLASSIC_FIREWALL
       - name: network_profile
         description: |
           "A full or partial URL of the network profile to apply to this network.

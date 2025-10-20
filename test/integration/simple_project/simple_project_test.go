@@ -33,6 +33,7 @@ func TestSimpleProject(t *testing.T) {
 
 			vpc := gcloud.Run(t, fmt.Sprintf("compute networks describe %s --project %s", net.GetStringOutput("network_name"), projectID))
 			assert.Equal(3, len(vpc.Get("subnetworks").Array()), "should have three subnets")
+			assert.Equal("BEFORE_CLASSIC_FIREWALL", vpc.Get("networkFirewallPolicyEnforcementOrder").String(), "Default network firewall policy enforcement order should be correct")
 
 			subnet1 := gcloud.Run(t, "compute networks subnets describe subnet-01", gcOpts)
 			assert.Equal("10.10.10.0/24", subnet1.Get("ipCidrRange").String(), "should have the right CIDR")
